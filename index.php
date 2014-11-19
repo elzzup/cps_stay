@@ -1,4 +1,7 @@
 <?php
+$err = isset($_GET['e']);
+$year = date('Y');
+
 ?>
 
 <!DOCTYPE html>
@@ -12,13 +15,21 @@
     <form action="out.php" method="GET">
     学籍番号<input id="univ_id" type="text" name="univ_id">
     <br />
-    ユーザーID(hiro)<input id="user_id" type="text" name="user_id">
+    ユーザーID(etc: hiro)<input id="user_id" type="text" name="user_id">
     <br />
-    <input id="y" type="text" name="y">年
-    <input id="m" type="text" name="m">月
+    <select id="y" name="y">
+        <?php foreach (range($year, $year + 5) as $y) { ?>
+        <option value="<?= $y ?>"><?= $y ?></option>
+        <?php } ?>
+    </select>年
+
     <br />
     <input type="submit" value="作成">
+    <?php if ($err) { ?>
+        <p>エラー</p>
+    <?php } ?>
+
 </form>
-    
+
 </body>
 </html>
