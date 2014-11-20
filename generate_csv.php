@@ -3,7 +3,7 @@
 //generate_csv('12fi091', 'hiro', '2014', '12');
 function generate_csv($univ_id, $user_id, $year, $month) {
     $start = 1;
-    if (date('m') == $month) {
+    if ($year == date('Y') && date('m') == $month) {
         $start = date('d');
     }
     $header = "No,残留日,残留者ユーザID,場所コード,建物コード,理由,その他,申請日,申請者ユーザID,Ｒ更新者,Ｒ更新日付,Ｒ更新時刻\n";
