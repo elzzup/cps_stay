@@ -11,11 +11,11 @@ $year = date('Y');
     <title></title>
 </head>
 <body>
-    <h1>残留申請CSV作成</h1>
+    <h1>CPS LAB残留申請CSV作成</h1>
     <form action="out.php" method="GET">
     学籍番号<input id="univ_id" type="text" name="univ_id">
     <br />
-    ユーザーID(etc: hiro)<input id="user_id" type="text" name="user_id">
+    ユーザー名(etc: hiro)<input id="user_id" type="text" name="user_id">
     <br />
     <select id="y" name="y">
         <?php foreach (range($year, $year + 5) as $y) { ?>

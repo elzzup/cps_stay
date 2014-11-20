@@ -31,7 +31,11 @@ if (!file_exists($zip_path)) {
         die('cannot open zipobj');
     }
     $filenames = array();
-    foreach (range(1, 12) as $month) {
+    $start = 1;
+    if ($year == date('Y')) {
+        $start = date('m');
+    }
+    foreach (range($start, 12) as $month) {
         $csv = generate_csv($univ_id, $user_id, $year, $month);
         //    $filename = mb_convert_encoding("{$dir_name}/{$year}年{$month}月残留申請_{$user_id}.CSV", 'SJIS', 'UTF-8');
         $filename = "{$dir_name}/demand_{$year}_{$month}_{$user_id}.CSV";
