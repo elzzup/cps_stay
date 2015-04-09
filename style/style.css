@@ -1,0 +1,60 @@
+@charset utf-8;
+
+h1 {
+    font-size: 35px;
+    margin: 40px 60px;
+}
+h2 {
+    font-size: 25px;
+}
+
+.wrap {
+    margin: 0 auto;
+    width: 60%;
+}
+
+.card {
+    padding: 10px;
+    border: solid 1px;
+    border-radius: 4px;
+}
+
+.key {
+    width: 20%;
+    float: left;
+    text-align: right;
+    margin-right: 5%;
+}
+
+.shift-20 {
+    margin-left: 25%;
+}
+
+.description {
+    font-size: 14px;
+    color: #888;
+}
+
+#submit-button {
+    width: 350px;
+    height: 3em;
+    margin: 10px 0;
+}
+
+#err {
+    color: red;
+}
+
+.note {
+    border: solid 1px;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+input[type=submit] {
+    cursor: pointer;
+}
+
+section.form-item {
+    margin-bottom: 20px;
+}
