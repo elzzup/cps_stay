@@ -8,15 +8,19 @@ $year    = @$_GET['y'];
 $month   = @$_GET['m'];
 $room    = @$_GET['room_id'];
 $teacher = @$_GET['teacher_id'];
+
+$is_cache = @$_GET['is_cache'];
 if (!$univ_id || !$user_id || !$year || !$room || !$teacher || !isset($month)) {
     header("location: ./?e");
     exit();
 }
 
-setcookie("univ_id"    , $univ_id);
-setcookie("user_id"    , $user_id);
-setcookie("room_id"    , $room);
-setcookie("teacher_id" , $teacher);
+if ($is_cache) {
+    setcookie("univ_id"    , $univ_id);
+    setcookie("user_id"    , $user_id);
+    setcookie("room_id"    , $room);
+    setcookie("teacher_id" , $teacher);
+}
 
 if ($month != 0) {
     $days = $_GET['day'];

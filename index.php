@@ -143,8 +143,13 @@ require_once('./functions.php');
     </div>
   </div>
   <div class="row">
-    <div class="large-4 large-offset-4 columns">
-        <input id="submit-button" type="submit" class="button expanded" value="作成">
+    <div class="large-4 columns">
+        <input id="is_cache" type="checkbox" value="1" name="is_cache" checked><label for="is_cache">ID,Name,Teacher,Roomをキャッシュする</label>
+    </div>
+    <div class="large-4 columns">
+        <input id="submit-button" type="submit" class="button" value="作成">
+    </div>
+    <div class="large-4 columns">
     </div>
   </div>
 </form>
