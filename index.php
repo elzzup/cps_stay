@@ -50,11 +50,13 @@ require_once('./functions.php');
         <label>ID
             <input id="univ_id" name="univ_id" type="text" value="<?= $univ_id_default ?>" placeholder="12fi091" />
         </label>
+        <small class="error">error</small>
     </div>
     <div class="large-4 columns">
         <label>Name
             <input id="user_id" name="user_id" type="text" value="<?= $user_id_default ?>"placeholder="hiro" />
         </label>
+        <small class="error">error</small>
     </div>
     <div class="large-4 columns">
         <!-- TODO: -->

@@ -52,10 +52,6 @@ $ ->
     $('#teacher-field').hide()
     $ti.val(rtv)
 
-
-  $('#submit-button').submit ->
-    return true
-
   $('#check-all-button').click ->
     $("[name=day\\[\\]]").prop 'checked', true
   $('#uncheck-all-button').click ->
@@ -71,3 +67,13 @@ $ ->
     $("#y").val(y)
     $("#m").val(m)
     $("#m").change()
+
+  $('.error').hide()
+  $('#submit-button').submit ->
+    noerror = true
+    if $('#univ_id').val() == ''
+      noerror = false
+      $('#univ_id').addClass('error')
+    else
+      $('#univ_id').removeClass('error')
+
