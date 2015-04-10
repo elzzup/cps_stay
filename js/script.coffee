@@ -7,8 +7,10 @@ $ ->
   $ti = $('#teacher_id')
   $tt = $('#teacher-tmp')
 
-  $('#room-field').hide()
-  $('#teacher-field').hide()
+  if $rt.val() != '0'
+    $('#room-field').hide()
+  if $tt.val() != '0'
+    $('#teacher-field').hide()
 
   update_cal = ->
     m = $('#m').val()

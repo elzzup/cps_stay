@@ -1,7 +1,5 @@
 <?php
 
-ini_set('display_errors', '1');
-error_reporting(E_ALL);
 require_once('generate_csv.php');
 
 $univ_id = @$_GET['univ_id'];
@@ -15,7 +13,10 @@ if (!$univ_id || !$user_id || !$year || !$room || !$teacher || !isset($month)) {
     exit();
 }
 
-$tmp_dir = './tmp/';
+setcookie("univ_id"    , $univ_id);
+setcookie("user_id"    , $user_id);
+setcookie("room_id"    , $room);
+setcookie("teacher_id" , $teacher);
 
 if ($month != 0) {
     $days = $_GET['day'];
@@ -27,7 +28,7 @@ if ($month != 0) {
     header('Content-Disposition: attachment; filename="'. $filename); 
     echo $csv;
 } else {
-    // hoge_2014
+    $tmp_dir = './tmp/';
     $dir_name = "demand_{$univ_id}_{$year}";
     // ./tmp/hoge_2014
     $tmp_zip_dir = $tmp_dir . $dir_name . "/";
@@ -53,13 +54,8 @@ if ($month != 0) {
             $filenames[] = $tmpfilename;
             file_put_contents($tmpfilename, $csv);
             $zip->addFile($tmpfilename, $filename);
-            //    $zip->addFile($tmpfilename);
-            //    unlink($tmpfilename);
         }
         $zip->close();
-        //foreach ($filenames as $f) {
-        //    unlink($f);
-        //}
     }
     header('Pragma: public');
     header("Content-Type: application/octet-stream");

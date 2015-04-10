@@ -2,20 +2,21 @@
 $err = isset($_GET['e']);
 $ny = date('Y');
 $nm = date('n');
-ini_set('display_errors', '1');
-error_reporting(E_ALL);
 
 $room_codes = array(
     '岩井研11階' => '8011107B0',
     '岩井研14階' => '801140600',
     'その他' => '0'
 );
-$room_id_default = '8011107B0';
 $teacher_codes = array(
     '岩井' => '1817',
     'その他' => '0'
 );
-$teacher_id_default = '1817';
+
+$univ_id_default    = @$_COOKIE['univ_id'] ?: '';
+$user_id_default    = @$_COOKIE['user_id'] ?: '';
+$room_id_default    = @$_COOKIE['room_id'] ?: '8011107B0';
+$teacher_id_default = @$_COOKIE['teacher_id'] ?: '1817';
 
 require_once('./functions.php');
 
@@ -46,12 +47,12 @@ require_once('./functions.php');
   <div class="row">
     <div class="large-4 columns">
         <label>ID
-            <input id="univ_id" name="univ_id" type="text" placeholder="12fi091" />
+            <input id="univ_id" name="univ_id" type="text" value="<?= $univ_id_default ?>" placeholder="12fi091" />
         </label>
     </div>
     <div class="large-4 columns">
         <label>Name
-            <input id="user_id" name="user_id" type="text" placeholder="hiro" />
+            <input id="user_id" name="user_id" type="text" value="<?= $user_id_default ?>"placeholder="hiro" />
         </label>
     </div>
     <div class="large-4 columns">
@@ -63,7 +64,7 @@ require_once('./functions.php');
         <label>Teacher</label>
         <select id="teacher-tmp">
             <?php foreach ($teacher_codes as $name => $code) { ?>
-            <option value="<?= $code ?>" <?= $code == $teacher_id_default ? 'selected' : '' ?>><?= $name ?></option>
+            <option value="<?= $code ?>" <?= ($code == $teacher_id_default || ($code == '0' && !in_array($teacher_id_default, $teacher_codes))) ? 'selected' : '' ?>><?= $name ?></option>
             <?php } ?>
         </select>
     </div>
@@ -81,7 +82,7 @@ require_once('./functions.php');
         <label>Room</label>
         <select id="room-tmp">
             <?php foreach ($room_codes as $name => $code) { ?>
-            <option value="<?= $code ?>" <?= $code == $room_id_default ? 'selected' : '' ?>><?= $name ?></option>
+            <option value="<?= $code ?>" <?= ($code == $room_id_default || ($code == '0' && !in_array($room_id_default, $room_codes))) ? 'selected' : '' ?>><?= $name ?></option>
             <?php } ?>
         </select>
     </div>
