@@ -11,6 +11,11 @@ $room_codes = array(
     'その他' => '0'
 );
 $room_id_default = '8011107B0';
+$teacher_codes = array(
+    '岩井' => '1817'
+);
+$teacher_id_default = '1817';
+
 require_once('./functions.php');
 
 ?>
