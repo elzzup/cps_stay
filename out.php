@@ -9,7 +9,8 @@ $user_id = @$_GET['user_id'];
 $year    = @$_GET['y'];
 $month   = @$_GET['m'];
 $room    = @$_GET['room_id'];
-if (!$univ_id || !$user_id || !$year || !$room || !isset($month)) {
+$teacher = @$_GET['teacher_id'];
+if (!$univ_id || !$user_id || !$year || !$room || !$teacher || !isset($month)) {
     header("location: ./?e");
     exit();
 }
@@ -17,7 +18,8 @@ if (!$univ_id || !$user_id || !$year || !$room || !isset($month)) {
 $tmp_dir = './tmp/';
 
 if ($month != 0) {
-    $csv = generate_csv($univ_id, $user_id, $year, $month, $room, substr($room, 0, 3));
+    $days = $_GET['day'];
+    $csv = generate_csv($univ_id, $user_id, $year, $month, $room, substr($room, 0, 3), $teacher, $days);
     $filename = "demand_{$year}_{$month}_{$user_id}.CSV";
     header('Cache-Control: public');
     header('Pragma: public');
@@ -30,7 +32,6 @@ if ($month != 0) {
     // ./tmp/hoge_2014
     $tmp_zip_dir = $tmp_dir . $dir_name . "/";
     @mkdir($tmp_zip_dir);
-    
     // zip module
     $zip = new ZipArchive();
     $zipname = $dir_name . '.zip';
@@ -46,7 +47,7 @@ if ($month != 0) {
             $start = date('m');
         }
         foreach (range($start, 12) as $m) {
-            $csv = generate_csv($univ_id, $user_id, $year, $m, $room, substr($room, 0, 3));
+            $csv = generate_csv($univ_id, $user_id, $year, $m, $room, substr($room, 0, 3), $teacher);
             $filename = "{$dir_name}/demand_{$year}_{$m}_{$user_id}.CSV";
             $tmpfilename = $tmp_zip_dir . $m . '.CSV';
             $filenames[] = $tmpfilename;
@@ -65,7 +66,4 @@ if ($month != 0) {
     header("Content-Disposition: attachment; filename=" . $zipname);
     readfile($zip_path);
 }
-
-
-
 //@rmdir($tmp_zip_dir);

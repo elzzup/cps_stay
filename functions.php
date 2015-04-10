@@ -19,7 +19,7 @@ function table_cal($y, $m) {
 <?php if (!empty($d)) { ?>
                 <?= $d ?>
                 <div class="switch tiny day">
-                    <input id="d<?= $d ?>" type="checkbox" <?= $checked ?>>
+                    <input id="d<?= $d ?>" type="checkbox" value="<?= $d ?>" name="day[]" <?= $checked ?>>
                     <label for="d<?= $d ?>"></label>
                 </div> 
 <?php } ?>

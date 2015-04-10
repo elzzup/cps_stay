@@ -4,8 +4,11 @@ $ ->
   $mf = $('#month-field')
   $ri = $('#room_id')
   $rt = $('#room-tmp')
+  $ti = $('#teacher_id')
+  $tt = $('#teacher-tmp')
 
   $('#room-field').hide()
+  $('#teacher-field').hide()
 
   update_cal = ->
     m = $('#m').val()
@@ -37,6 +40,16 @@ $ ->
       return
     $('#room-field').hide()
     $ri.val(rtv)
+
+  $tt.change ->
+    rtv = $tt.val()
+    if parseInt(rtv) == 0
+      $('#teacher-field').show()
+      $ti.val('')
+      return
+    $('#teacher-field').hide()
+    $ti.val(rtv)
+
 
   $('#submit-button').submit ->
     return true

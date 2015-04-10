@@ -12,7 +12,8 @@ $room_codes = array(
 );
 $room_id_default = '8011107B0';
 $teacher_codes = array(
-    '岩井' => '1817'
+    '岩井' => '1817',
+    'その他' => '0'
 );
 $teacher_id_default = '1817';
 
@@ -59,6 +60,24 @@ require_once('./functions.php');
   </div>
   <div class="row">
     <div class="large-4 columns">
+        <label>Teacher</label>
+        <select id="teacher-tmp">
+            <?php foreach ($teacher_codes as $name => $code) { ?>
+            <option value="<?= $code ?>" <?= $code == $teacher_id_default ? 'selected' : '' ?>><?= $name ?></option>
+            <?php } ?>
+        </select>
+    </div>
+    <div class="large-4 columns">
+      <label id="teacher-field">Other
+      <input id="teacher_id" name="teacher_id" type="text" value="<?= $teacher_id_default ?>" placeholder="<?= $teacher_id_default ?>" />
+      </label>
+    </div>
+    <div class="large-4 columns">
+        <!-- TODO: 問い合わせ -->
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-4 columns">
         <label>Room</label>
         <select id="room-tmp">
             <?php foreach ($room_codes as $name => $code) { ?>
@@ -68,7 +87,7 @@ require_once('./functions.php');
     </div>
     <div class="large-4 columns">
       <label id="room-field">Other
-      <input id="room_id" name="room_id" type="text" value="<?= $room_id_default ?>" placeholder="8011107B0" />
+      <input id="room_id" name="room_id" type="text" value="<?= $room_id_default ?>" placeholder="<?= $room_id_default ?>" />
       </label>
     </div>
     <div class="large-4 columns">
