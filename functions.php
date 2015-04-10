@@ -35,6 +35,6 @@ function table_cal($y, $m) {
 
 function get_days($y, $m) {
     list($w, $last) = explode(',', date('w,t',strtotime(date("{$y}/{$m}/1"))));
-    $days = array_merge(($w == 0 ? [] : array_fill(0, $w, 0)), range(1, $last));
+    $days = array_merge(($w == 0 ? array() : array_fill(0, $w, 0)), range(1, $last));
     return array_chunk($days, 7);
 }
