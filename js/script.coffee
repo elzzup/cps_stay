@@ -55,3 +55,19 @@ $ ->
 
   $('#submit-button').submit ->
     return true
+
+  $('#check-all-button').click ->
+    $("[name=day\\[\\]]").prop 'checked', true
+  $('#uncheck-all-button').click ->
+    $("[name=day\\[\\]]").prop 'checked', false
+
+  $('#quick-year-button').click ->
+    $("#m").val("0")
+    $("#m").change()
+  $('#quick-today-button').click ->
+    date = new Date()
+    y = date.getFullYear()
+    m = date.getMonth() + 1
+    $("#y").val(y)
+    $("#m").val(m)
+    $("#m").change()

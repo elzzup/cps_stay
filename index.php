@@ -28,6 +28,7 @@ require_once('./functions.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>残留申請CSV作成 東京電機大学</title>
     <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="css/foundation-icons.css" />
     <link rel="stylesheet" href="./style/style.css">
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="js/foundation.min.js"></script>
@@ -56,7 +57,7 @@ require_once('./functions.php');
         </label>
     </div>
     <div class="large-4 columns">
-        <!-- TODO: チェックボックス -->
+        <!-- TODO: -->
     </div>
   </div>
   <div class="row">
@@ -74,7 +75,7 @@ require_once('./functions.php');
       </label>
     </div>
     <div class="large-4 columns">
-        <!-- TODO: 問い合わせ -->
+        <!-- TODO: -->
     </div>
   </div>
   <div class="row">
@@ -92,7 +93,7 @@ require_once('./functions.php');
       </label>
     </div>
     <div class="large-4 columns">
-        <!-- TODO: 問い合わせ -->
+        <!-- TODO: -->
     </div>
   </div>
   <div class="row">
@@ -128,11 +129,14 @@ require_once('./functions.php');
       </div>
     </div>
     <div class="large-4 columns">
-        <!-- TODO: 便利ボタン -->
+        <!-- TODO: -->
+        <span class="label info">Quick:</span>
+        <a id="quick-year-button" class="tiny button"><i class="fi-clock"></i>&nbsp;Year</a>
+        <a id="quick-today-button" class="tiny button"><i class="fi-clock"></i>&nbsp;Today</a>
     </div>
   </div>
   <div class="row">
-    <div class="large-4 columns">
+    <div class="large-6 columns">
       <div id="month-field">
         <div class="row collapse">
           <div class="large-6 columns">
@@ -141,10 +145,18 @@ require_once('./functions.php');
         <?php table_cal($ny, $nm) ?>
       </div>
     </div>
+    <div class="large-6 columns">
+        <div class="controllers">
+            <ul class="stack-for-small round secondary button-group">
+                <li><a id="check-all-button" class="small button"><i class="fi-check"></i></a></li>
+                <li><a id="uncheck-all-button" class="small button"><i class="fi-minus"></i></a></li>
+            </ul>
+        </div>
+    </div>
   </div>
   <div class="row">
     <div class="large-4 columns">
-        <input id="is_cache" type="checkbox" value="1" name="is_cache" checked><label for="is_cache">ID,Name,Teacher,Roomをキャッシュする</label>
+        <input id="is_cache" type="checkbox" value="1" name="is_cache"><label for="is_cache">ID,Name,Teacher,Roomをキャッシュする</label>
     </div>
     <div class="large-4 columns">
         <input id="submit-button" type="submit" class="button" value="作成">

@@ -67,3 +67,7 @@ section.form-item {
 footer {
   text-align: right;
 }
+
+.controllers {
+  padding: 22px;
+}
