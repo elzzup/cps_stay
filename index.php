@@ -10,6 +10,7 @@ $room_codes = array(
     '岩井研14階' => '801140600',
     'その他' => '0'
 );
+$room_id_default = '8011107B0';
 require_once('./functions.php');
 
 ?>
@@ -48,6 +49,7 @@ require_once('./functions.php');
         </label>
     </div>
     <div class="large-4 columns">
+        <!-- TODO: チェックボックス -->
     </div>
   </div>
   <div class="row">
@@ -55,13 +57,13 @@ require_once('./functions.php');
         <label>Room</label>
         <select id="room-tmp">
             <?php foreach ($room_codes as $name => $code) { ?>
-            <option value="<?= $code ?>"><?= $name ?></option>
+            <option value="<?= $code ?>" <?= $code == $room_id_default ? 'selected' : '' ?>><?= $name ?></option>
             <?php } ?>
         </select>
     </div>
     <div class="large-4 columns">
       <label id="room-field">Other
-        <input id="room_id" name="room_id" type="text" placeholder="8011107B0" />
+      <input id="room_id" name="room_id" type="text" value="<?= $room_id_default ?>" placeholder="8011107B0" />
       </label>
     </div>
     <div class="large-4 columns">

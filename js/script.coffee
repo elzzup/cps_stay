@@ -31,7 +31,6 @@ $ ->
 
   $rt.change ->
     rtv = $rt.val()
-    console.log rtv
     if parseInt(rtv) == 0
       $('#room-field').show()
       $ri.val('')
@@ -39,4 +38,5 @@ $ ->
     $('#room-field').hide()
     $ri.val(rtv)
 
-
+  $('#submit-button').submit ->
+    return true

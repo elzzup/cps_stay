@@ -1,7 +1,7 @@
 <?php
 
 //generate_csv('12fi091', 'hiro', '2014', '12');
-function generate_csv($univ_id, $user_id, $year, $month, $place) {
+function generate_csv($univ_id, $user_id, $year, $month, $room, $building) {
     $start = 1;
     if ($year == date('Y') && date('m') == $month) {
         $start = date('d');

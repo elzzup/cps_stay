@@ -7,12 +7,13 @@ require_once('generate_csv.php');
 $univ_id = @$_GET['univ_id'];
 $user_id = @$_GET['user_id'];
 $year    = @$_GET['y'];
-if (!$univ_id || !$user_id || !$year) {
+$month   = @$_GET['m'];
+$room    = @$_GET['room_id'];
+if (!$univ_id || !$user_id || !$year || !$room) {
     header("location: ./?e");
     exit();
 }
 
-$place = '8011107B0' . ':' . '801';
 $tmp_dir = './tmp/';
 
 // hoge_2014
@@ -27,7 +28,6 @@ $zipname = $dir_name . '.zip';
 $zip_path = $tmp_zip_dir . $zipname;
 $filenames = array();
 if (!file_exists($zip_path)) {
-
     if ($zip->open($zip_path, ZipArchive::CREATE) !==TRUE) {
         die('cannot open zipobj');
     }
@@ -37,8 +37,7 @@ if (!file_exists($zip_path)) {
         $start = date('m');
     }
     foreach (range($start, 12) as $month) {
-        $csv = generate_csv($univ_id, $user_id, $year, $month, $place);
-        //    $filename = mb_convert_encoding("{$dir_name}/{$year}年{$month}月残留申請_{$user_id}.CSV", 'SJIS', 'UTF-8');
+        $csv = generate_csv($univ_id, $user_id, $year, $month, $room, substr($room, 0, 3));
         $filename = "{$dir_name}/demand_{$year}_{$month}_{$user_id}.CSV";
         $tmpfilename = $tmp_zip_dir . $month . '.CSV';
         $filenames[] = $tmpfilename;
