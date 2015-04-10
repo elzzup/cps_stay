@@ -8,9 +8,11 @@ $year = date('Y');
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CPS LAB残留申請CSV作成</title>
-<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
-<link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="./style/style.css">
+    <script src="js/vendor/modernizr.js"></script>
 <script>
 window.onload = function() {
     document.getElementById('submit-button').addEventListener("mouseover", function() {
@@ -49,6 +51,21 @@ window.onload = function() {
                     <div class="description shift-20">年 ex) 2014</div>
                 </section>
 
+                <section class="form-item">
+                    <h4 class="key">OnMonth</h4>
+                    <input id="month" type="text" name="month">
+                    <div class="description shift-20"></div>
+                </section>
+
+                <section class="form-item">
+                    <h4 class="key">Month</h4>
+                    <select id="y" name="y">
+                        <?php foreach (range($year, $year + 5) as $y) { ?>
+                        <option value="<?= $y ?>"><?= $y ?></option>
+                        <?php } ?>
+                    </select>年
+                    <div class="description shift-20">年 ex) 2014</div>
+                </section>
 
                 <div class="shift-20">
                     <input id="submit-button" type="submit" value="作成">
