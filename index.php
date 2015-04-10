@@ -5,7 +5,10 @@ $nm = date('n');
 ini_set('display_errors', '1');
 error_reporting(E_ALL);
 
-$room = array(
+$room_codes = array(
+    '岩井研11階' => '8011107B0',
+    '岩井研14階' => '801140600',
+    'その他' => '0'
 );
 require_once('./functions.php');
 
@@ -35,16 +38,34 @@ require_once('./functions.php');
 <form action="out.php">
   <div class="row">
     <div class="large-4 columns">
-      <label>ID
-        <input id="univ_id" name="univ_id" type="text" placeholder="12fi091" />
+        <label>ID
+            <input id="univ_id" name="univ_id" type="text" placeholder="12fi091" />
+        </label>
+    </div>
+    <div class="large-4 columns">
+        <label>Name
+            <input id="user_id" name="user_id" type="text" placeholder="hiro" />
+        </label>
+    </div>
+    <div class="large-4 columns">
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-4 columns">
+        <label>Room</label>
+        <select id="room-tmp">
+            <?php foreach ($room_codes as $name => $code) { ?>
+            <option value="<?= $code ?>"><?= $name ?></option>
+            <?php } ?>
+        </select>
+    </div>
+    <div class="large-4 columns">
+      <label id="room-field">Other
+        <input id="room_id" name="room_id" type="text" placeholder="8011107B0" />
       </label>
     </div>
     <div class="large-4 columns">
-      <label>Name
-        <input id="user_id" name="user_id" type="text" placeholder="hiro" />
-      </label>
-    </div>
-    <div class="large-4 columns">
+        <!-- TODO: 問い合わせ -->
     </div>
   </div>
   <div class="row">
@@ -80,6 +101,7 @@ require_once('./functions.php');
       </div>
     </div>
     <div class="large-4 columns">
+        <!-- TODO: 便利ボタン -->
     </div>
   </div>
   <div class="row">

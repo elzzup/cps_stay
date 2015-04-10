@@ -3,3 +3,5 @@ samples/
 tmp/
 bower_components/
 php.ini
+
+js/script.js

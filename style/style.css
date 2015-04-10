@@ -63,3 +63,7 @@ section.form-item {
   opacity: 0.5;
   pointer-events: none;
 }
+
+footer {
+  text-align: right;
+}
