@@ -15,7 +15,7 @@ require_once('./functions.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CPS LAB残留申請CSV作成</title>
+    <title>残留申請CSV作成 東京電機大学</title>
     <link rel="stylesheet" href="css/foundation.css" />
     <link rel="stylesheet" href="./style/style.css">
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
@@ -27,7 +27,7 @@ require_once('./functions.php');
 <header>
     <div class="row">
         <div class="large-12 columns">
-            <h1>CPS LAB残留申請CSV作成請</h1>
+            <h1>残留申請CSV作成 東京電機大学</h1>
         </div>
     </div>
 </header>
@@ -36,12 +36,12 @@ require_once('./functions.php');
   <div class="row">
     <div class="large-4 columns">
       <label>ID
-        <input type="text" placeholder="12fi091" />
+        <input id="univ_id" name="univ_id" type="text" placeholder="12fi091" />
       </label>
     </div>
     <div class="large-4 columns">
       <label>Name
-        <input type="text" placeholder="hiro" />
+        <input id="user_id" name="user_id" type="text" placeholder="hiro" />
       </label>
     </div>
     <div class="large-4 columns">
@@ -100,64 +100,6 @@ require_once('./functions.php');
   </div>
 </form>
 
-    <section class="wrap">
-        <h2>残留申請生成フォーム</h2>
-        <div class="card row">
-
-            <form action="out.php" method="GET">
-                <div class="large-12 columns">
-                    <label>ID</label>
-                    <input id="univ_id" type="text" name="univ_id">
-                    <div class="description shift-20">学籍番号 ex) 12fi091</div>
-                </div>
-
-                <section class="form-item">
-                    <h4 class="key">Name</h4>
-                    <input id="user_id" type="text" name="user_id">
-                    <div class="description shift-20">userId ex) hiro</div>
-                </section>
-
-                <section class="form-item">
-                    <h4 class="key">ny</h4>
-                    <select id="y" name="y">
-                        <?php foreach (range($ny, $ny + 5) as $y) { ?>
-                        <option value="<?= $y ?>"><?= $y ?></option>
-                        <?php } ?>
-                    </select>年
-                    <div class="description shift-20">年 ex) 2014</div>
-                </section>
-
-                <section class="form-item">
-                    <h4 class="key">OnMonth</h4>
-                    <input id="month" type="text" name="month">
-                    <div class="description shift-20"></div>
-                </section>
-
-                <div class="shift-20">
-                    <input id="submit-button" type="submit" value="作成">
-                </div>
-
-                <?php if ($err) { ?>
-                <div id="err-box">
-                    <p id="err">エラー</p>
-                </div>
-                <?php } ?>
-                </div>
-            </form>
-                </div>
-            <section class="note">
-                <h4>※解説・注意</h4>
-                <ul>
-                    <li>
-                        構成はcsvファイルx12のzipがダウンロードできます<br />
-                        一つのファイルが一月分で、その月の全ての日について申請が記述されています
-                    </li>
-                    <li>
-                        残留申請は提出日より前の日が含まれる場合通りません<br />
-                        そのため予め省かれて生成されます
-                    </li>
-            </section>
-    <section>
 <footer>
     <a href="//elzup.com">elzup.com</a>
 </footer>

@@ -8,7 +8,8 @@
       var m;
       m = $('#m').val();
       if (0 === parseInt(m)) {
-        $('#month-field').hide();
+        $mf.children('table').css('opacity', '0.25');
+        $mf.children('.switch.day').addClass('disabled');
         return;
       }
       $mf.show();

@@ -58,3 +58,8 @@ input[type=submit] {
 section.form-item {
     margin-bottom: 20px;
 }
+
+.switch.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
