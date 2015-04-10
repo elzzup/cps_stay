@@ -1,7 +1,7 @@
 <?php
 
 //generate_csv('12fi091', 'hiro', '2014', '12');
-function generate_csv($univ_id, $user_id, $year, $month) {
+function generate_csv($univ_id, $user_id, $year, $month, $place) {
     $start = 1;
     if ($year == date('Y') && date('m') == $month) {
         $start = date('d');
@@ -13,7 +13,8 @@ function generate_csv($univ_id, $user_id, $year, $month) {
         $data = array();
         for ($i = $start; $i <= num_month($year, $month); $i++) {
             $date = "{$year}/{$month}/{$i}";
-            $data[] = implode(',', array('', $date, $univ_id, '8011107B0', '801', '1', $user_id, '', '1817', '', '', ''));
+            list($place_room, $place_building) = explode(':', $place);
+            $data[] = implode(',', array('', $date, $univ_id, $place_room, $place_building, '1', $user_id, '', '1817', '', '', ''));
         }
         $csv = implode("\n", $data);
     }

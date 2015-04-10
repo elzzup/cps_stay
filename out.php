@@ -12,6 +12,7 @@ if (!$univ_id || !$user_id || !$year) {
     exit();
 }
 
+$place = '8011107B0' . ':' . '801';
 $tmp_dir = './tmp/';
 
 // hoge_2014
@@ -36,7 +37,7 @@ if (!file_exists($zip_path)) {
         $start = date('m');
     }
     foreach (range($start, 12) as $month) {
-        $csv = generate_csv($univ_id, $user_id, $year, $month);
+        $csv = generate_csv($univ_id, $user_id, $year, $month, $place);
         //    $filename = mb_convert_encoding("{$dir_name}/{$year}年{$month}月残留申請_{$user_id}.CSV", 'SJIS', 'UTF-8');
         $filename = "{$dir_name}/demand_{$year}_{$month}_{$user_id}.CSV";
         $tmpfilename = $tmp_zip_dir . $month . '.CSV';

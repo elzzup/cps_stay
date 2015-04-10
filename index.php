@@ -1,6 +1,13 @@
 <?php
 $err = isset($_GET['e']);
-$year = date('Y');
+$ny = date('Y');
+$nm = date('n');
+ini_set('display_errors', '1');
+error_reporting(E_ALL);
+
+$room = array(
+);
+require_once('./functions.php');
 
 ?>
 <!DOCTYPE html>
@@ -14,20 +21,16 @@ $year = date('Y');
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="js/foundation.min.js"></script>
     <script src="js/vendor/modernizr.js"></script>
-<script>
-$(function(){
-    $(document).foundation();
-});
-</script>
+    <script src="js/script.js"></script>
 </head>
 <body>
-    <header>
-        <div class="row">
-            <div class="large-12 columns">
-                <h1>CPS LAB残留申請CSV作成請</h1>
-            </div>
+<header>
+    <div class="row">
+        <div class="large-12 columns">
+            <h1>CPS LAB残留申請CSV作成請</h1>
         </div>
-    </header>
+    </div>
+</header>
 
 <form action="out.php">
   <div class="row">
@@ -50,7 +53,7 @@ $(function(){
         <label>Year</label>
         <div class="small-9 columns">
             <select id="y" name="y">
-                <?php foreach (range($year, $year + 5) as $y) { ?>
+                <?php foreach (range($ny, $ny + 5) as $y) { ?>
                 <option value="<?= $y ?>"><?= $y ?></option>
                 <?php } ?>
             </select>
@@ -60,34 +63,34 @@ $(function(){
         </div>
       </div>
     </div>
-    <div class="large-8 columns">
-        <ul class="accordion" data-accordion>
-            <li class="accordion-navigation">
-                <a href="#panel1a">only month?</a>
-                <div id="panel1a" class="content">
-                    month setting
-                </div>
-            </li>
-        </ul>
+    <div class="large-4 columns">
+      <div class="row collapse">
+        <label>Month</label>
+        <div class="small-9 columns">
+          <select id="m" name="m">
+            <option value="0">All (zip)</option>
+            <?php foreach (range(1, 12) as $m) { ?>
+            <option value="<?= $m ?>" <?= $m == $nm ? 'selected' : '' ?>><?= $m ?></option>
+            <?php } ?>
+          </select>
+        </div>
+        <div class="small-3 columns">
+          <span class="postfix">月</span>
+        </div>
+      </div>
+    </div>
+    <div class="large-4 columns">
     </div>
   </div>
   <div class="row">
-    <div class="large-6 columns">
-      <label>Choose Your Favorite</label>
-      <input type="radio" name="pokemon" value="Red" id="pokemonRed"><label for="pokemonRed">Red</label>
-      <input type="radio" name="pokemon" value="Blue" id="pokemonBlue"><label for="pokemonBlue">Blue</label>
-    </div>
-    <div class="large-6 columns">
-      <label>Check these out</label>
-      <input id="checkbox1" type="checkbox"><label for="checkbox1">Checkbox 1</label>
-      <input id="checkbox2" type="checkbox"><label for="checkbox2">Checkbox 2</label>
-    </div>
-  </div>
-  <div class="row">
-    <div class="large-12 columns">
-      <label>Textarea Label
-        <textarea placeholder="small-12.columns"></textarea>
-      </label>
+    <div class="large-4 columns">
+      <div id="month-field">
+        <div class="row collapse">
+          <div class="large-6 columns">
+          </div>
+        </div>
+        <?php table_cal($ny, $nm) ?>
+      </div>
     </div>
   </div>
   <div class="row">
@@ -115,9 +118,9 @@ $(function(){
                 </section>
 
                 <section class="form-item">
-                    <h4 class="key">Year</h4>
+                    <h4 class="key">ny</h4>
                     <select id="y" name="y">
-                        <?php foreach (range($year, $year + 5) as $y) { ?>
+                        <?php foreach (range($ny, $ny + 5) as $y) { ?>
                         <option value="<?= $y ?>"><?= $y ?></option>
                         <?php } ?>
                     </select>年
@@ -128,16 +131,6 @@ $(function(){
                     <h4 class="key">OnMonth</h4>
                     <input id="month" type="text" name="month">
                     <div class="description shift-20"></div>
-                </section>
-
-                <section class="form-item">
-                    <h4 class="key">Month</h4>
-                    <select id="y" name="y">
-                        <?php foreach (range($year, $year + 5) as $y) { ?>
-                        <option value="<?= $y ?>"><?= $y ?></option>
-                        <?php } ?>
-                    </select>年
-                    <div class="description shift-20">年 ex) 2014</div>
                 </section>
 
                 <div class="shift-20">
