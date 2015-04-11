@@ -9,6 +9,14 @@ $month   = @$_GET['m'];
 $room    = @$_GET['room_id'];
 $teacher = @$_GET['teacher_id'];
 
+$room_codes_r = array(
+    '8011107B0' => 'cps',
+    '801140600' => 'crl',
+    '804051600' => 'crl',
+);
+
+$lab = @$room_codes_r[$room] ?: $room;
+
 $is_cache = @$_GET['is_cache'];
 if (!$univ_id || !$user_id || !$year || !$room || !$teacher || !isset($month)) {
     header("location: ./?e");
@@ -25,7 +33,7 @@ if ($is_cache) {
 if ($month != 0) {
     $days = $_GET['day'];
     $csv = generate_csv($univ_id, $user_id, $year, $month, $room, substr($room, 0, 3), $teacher, $days);
-    $filename = "demand_{$year}_{$month}_{$user_id}.CSV";
+    $filename = "demand_{$year}_{$month}_{$user_id}_{$lab}.CSV";
     header('Cache-Control: public');
     header('Pragma: public');
     header('Content-Type: application/octet-stream');
@@ -33,7 +41,7 @@ if ($month != 0) {
     echo $csv;
 } else {
     $tmp_dir = './tmp/';
-    $dir_name = "demand_{$univ_id}_{$year}";
+    $dir_name = "demand_{$univ_id}_{$year}_{$lab}";
     // ./tmp/hoge_2014
     $tmp_zip_dir = $tmp_dir . $dir_name . "/";
     @mkdir($tmp_zip_dir);
@@ -53,7 +61,7 @@ if ($month != 0) {
         }
         foreach (range($start, 12) as $m) {
             $csv = generate_csv($univ_id, $user_id, $year, $m, $room, substr($room, 0, 3), $teacher);
-            $filename = "{$dir_name}/demand_{$year}_{$m}_{$user_id}.CSV";
+            $filename = "{$dir_name}/demand_{$year}_{$m}_{$user_id}_{$lab}.CSV";
             $tmpfilename = $tmp_zip_dir . $m . '.CSV';
             $filenames[] = $tmpfilename;
             file_put_contents($tmpfilename, $csv);
