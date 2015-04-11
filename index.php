@@ -41,7 +41,7 @@ require_once('./functions.php');
 <header>
     <div class="row">
         <div class="large-12 columns">
-            <h1>残留申請CSV作成 東京電機大学</h1>
+            <h1><i class="fi-ticket"></i>&nbsp;残留申請CSV作成 東京電機大学</h1>
         </div>
     </div>
 </header>
@@ -78,7 +78,7 @@ require_once('./functions.php');
       </label>
     </div>
     <div class="large-4 columns">
-        <!-- TODO: -->
+
     </div>
   </div>
   <div class="row">
@@ -159,14 +159,15 @@ require_once('./functions.php');
   </div>
   <div class="row">
     <div class="large-4 columns">
-        <input id="is_cache" type="checkbox" value="1" name="is_cache"><label for="is_cache">ID,Name,Teacher,Roomをキャッシュする</label>
-    </div>
-    <div class="large-4 columns">
         <a id="submit-button" class="button expand">作成</a>
     </div>
     <div class="large-4 columns">
+        <input id="is_cache" type="checkbox" value="1" name="is_cache"><label for="is_cache">ID,Name,Teacher,Roomをキャッシュする</label>
+    </div>
+    <div class="large-4 columns panel radius">
+        <p>リスト追加以来は 12fi091&#64;ms.dendai.ac.jp に連絡していただければ対応します</p>
         ※注意: <br />
-        残留申請は指導教員の許可なしには提出ができません。また、研究以外での宿泊は認められていません。
+        <p>残留申請は指導教員の許可なしには提出ができません。また、研究以外での宿泊は認められていません。</p>
     </div>
   </div>
 </form>

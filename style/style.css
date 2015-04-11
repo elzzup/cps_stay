@@ -66,3 +66,10 @@ footer {
 .controllers {
   padding: 22px;
 }
+
+h1>i {
+  color: #203B4D;
+  font-size: 58px;
+  text-shadow: 3px 1px 8px #a0d3e8, 1px 1px 4px #B1FFFC;
+}
+
