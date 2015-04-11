@@ -20,7 +20,7 @@ $user_id_default    = @$_COOKIE['user_id'] ?: '';
 $room_id_default    = @$_COOKIE['room_id'] ?: '8011107B0';
 $teacher_id_default = @$_COOKIE['teacher_id'] ?: '1817';
 
-require_once('./functions.php');
+require_once('./modules/functions.php');
 
 ?>
 <!DOCTYPE html>
@@ -31,7 +31,7 @@ require_once('./functions.php');
     <title>残留申請CSV作成 東京電機大学</title>
     <link rel="stylesheet" href="css/foundation.css" />
     <link rel="stylesheet" href="css/foundation-icons.css" />
-    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="css/style.css">
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="js/foundation.min.js"></script>
     <script src="js/vendor/modernizr.js"></script>

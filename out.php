@@ -1,6 +1,6 @@
 <?php
 
-require_once('generate_csv.php');
+require_once('./modules/functions.php');
 
 $univ_id = @$_GET['univ_id'];
 $user_id = @$_GET['user_id'];
@@ -18,7 +18,7 @@ $room_codes_r = array(
 $lab = @$room_codes_r[$room] ?: $room;
 
 $is_cache = @$_GET['is_cache'];
-if (!$univ_id || !$user_id || !$year || !$room || !$teacher || !isset($month)) {
+if (!$univ_id || !$year || !$room || !$teacher || !isset($month)) {
     header("location: ./?e");
     exit();
 }
