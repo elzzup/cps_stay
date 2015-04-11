@@ -44,7 +44,7 @@ require_once('./functions.php');
     </div>
 </header>
 
-<form action="out.php">
+<form id="main_form" action="out.php">
   <div class="row">
     <div class="large-4 columns">
         <label>ID
@@ -161,7 +161,7 @@ require_once('./functions.php');
         <input id="is_cache" type="checkbox" value="1" name="is_cache"><label for="is_cache">ID,Name,Teacher,Roomをキャッシュする</label>
     </div>
     <div class="large-4 columns">
-        <input id="submit-button" type="submit" class="button" value="作成">
+        <a id="submit-button" class="button">作成</a>
     </div>
     <div class="large-4 columns">
     </div>

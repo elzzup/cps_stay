@@ -12,7 +12,7 @@ $ ->
   if $tt.val() != '0'
     $('#teacher-field').hide()
 
-  update_cal = ->
+  update_cal = (callback=null) ->
     m = $('#m').val()
     if 0 == parseInt(m)
       $mf.children('table').css('opacity', '0.25')
@@ -28,6 +28,8 @@ $ ->
       dataType: 'html'
       success: (data) ->
         $mf.html data
+        console.log(callback)
+        callback()
       error: ->
         $mf.html 'カレンダーのロードに失敗しました'
 
@@ -64,16 +66,20 @@ $ ->
     date = new Date()
     y = date.getFullYear()
     m = date.getMonth() + 1
+    d = date.getDate()
     $("#y").val(y)
     $("#m").val(m)
-    $("#m").change()
+    update_cal ->
+      $(".switch.day>input[value!=" + d + "]").prop 'checked', false
 
   $('.error').hide()
-  $('#submit-button').submit ->
+  $('#submit-button').click ->
     noerror = true
     if $('#univ_id').val() == ''
       noerror = false
       $('#univ_id').addClass('error')
     else
       $('#univ_id').removeClass('error')
+    if noerror
+      $('#main_form').submit()
 
