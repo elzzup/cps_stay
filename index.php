@@ -50,13 +50,12 @@ require_once('./functions.php');
         <label>ID
             <input id="univ_id" name="univ_id" type="text" value="<?= $univ_id_default ?>" placeholder="12fi091" />
         </label>
-        <small class="error">error</small>
+        <small class="error">入力されていません</small>
     </div>
     <div class="large-4 columns">
         <label>Name
             <input id="user_id" name="user_id" type="text" value="<?= $user_id_default ?>"placeholder="hiro" />
         </label>
-        <small class="error">error</small>
     </div>
     <div class="large-4 columns">
         <!-- TODO: -->
@@ -161,9 +160,11 @@ require_once('./functions.php');
         <input id="is_cache" type="checkbox" value="1" name="is_cache"><label for="is_cache">ID,Name,Teacher,Roomをキャッシュする</label>
     </div>
     <div class="large-4 columns">
-        <a id="submit-button" class="button">作成</a>
+        <a id="submit-button" class="button expand">作成</a>
     </div>
     <div class="large-4 columns">
+        ※注意: <br />
+        残留申請は指導教員の許可なしには提出ができません。また、研究以外での宿泊は認められていません。
     </div>
   </div>
 </form>

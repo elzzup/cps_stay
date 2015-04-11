@@ -77,7 +77,9 @@ $ ->
     noerror = true
     if $('#univ_id').val() == ''
       noerror = false
+      $('#univ_id').parents().addClass('error')
       $('#univ_id').addClass('error')
+      $('#univ_id').parents().next().show()
     else
       $('#univ_id').removeClass('error')
     if noerror

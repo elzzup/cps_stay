@@ -35,12 +35,6 @@ h2 {
     color: #888;
 }
 
-#submit-button {
-    width: 350px;
-    height: 3em;
-    margin: 10px 0;
-}
-
 #err {
     color: red;
 }
@@ -66,6 +60,7 @@ section.form-item {
 
 footer {
   text-align: right;
+  padding-right: 100px;
 }
 
 .controllers {
