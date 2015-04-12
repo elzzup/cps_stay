@@ -165,7 +165,7 @@ require_once('./modules/functions.php');
         <input id="is_cache" type="checkbox" value="1" name="is_cache"><label for="is_cache">ID,Name,Teacher,Roomをキャッシュする</label>
     </div>
     <div class="large-4 columns panel radius">
-        <p>リスト追加以来は 12fi091&#64;ms.dendai.ac.jp に連絡していただければ対応します</p>
+        <p>リスト追加依頼は 12fi091&#64;ms.dendai.ac.jp に連絡していただければ対応します</p>
         ※注意: <br />
         <p>残留申請は指導教員の許可なしには提出ができません。また、研究以外での宿泊は認められていません。</p>
     </div>
