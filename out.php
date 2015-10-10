@@ -10,9 +10,10 @@ $room    = @$_GET['room_id'];
 $teacher = @$_GET['teacher_id'];
 
 $room_codes_r = array(
-    '8011107B0' => 'cps',
-    '801140600' => 'crl',
+    '8011107B0' => 'cps_f11',
+    '801140600' => 'cps_f14',
     '804051600' => 'crl',
+    '801111100' => 'isl',
 );
 
 $lab = @$room_codes_r[$room] ?: $room;
