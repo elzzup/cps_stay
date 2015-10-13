@@ -6,7 +6,9 @@ function table_cal($y, $m) {
 <table>
     <caption><?= "{$y}年 {$m}月" ?></caption>
     <thead>
-        <th>日</th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th>
+<?php foreach (explode(',', '日,月,火,水,木,金,土') as $i => $c) { ?>
+        <th align='center'><a data-toggle-day="<?= $i ?>"><?= $c ?></a></th>
+<?php } ?>
     </thead>
     <tbody>
 <?php foreach (get_days($y, $m) as $days) { ?>

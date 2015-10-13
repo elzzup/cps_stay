@@ -84,4 +84,8 @@ $ ->
       $('#univ_id').removeClass('error')
     if noerror
       $('#main_form').submit()
+  $('[data-toggle-day]').click ->
+    i = parseInt($(@).attr('data-toggle-day')) + 1
+    $switchs = $("table td:nth-child(7n+#{i}) input")
+    $switchs.prop('checked', !$switchs.eq(0).prop('checked'))
 
